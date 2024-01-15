@@ -1,12 +1,11 @@
-import "./App.css"
-import logo from "./assets/logo.png"
+import styles from "./App.module.css"
+
+import { Header } from "./components/Header"
 
 export function App() {
 	return (
 		<>
-			<img src={logo} alt="" />
-			<h1>Olá</h1>
-			<p>Teste</p>
+			<Header />
 		</>
 	)
 }
