@@ -18,11 +18,16 @@
 	font-size: 62.5%;
 }
 
+#root {
+	position: relative;
+}
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+	outline-color: var(--violet-dark);
 }
 
 body {
