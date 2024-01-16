@@ -1,0 +1,25 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	text-align: center;
+	padding: 6.4rem 0;
+	border-radius: 8px;
+	border-top: 1px solid var(--gray-400);
+}
+
+.empty img {
+	margin-bottom: 1.6rem;
+}
+
+.empty p {
+	color: var(--gray-300);
+	font-size: 1.6rem;
+}
+
+.empty > p:first-of-type {
+	font-weight: bold;
+}
