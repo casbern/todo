@@ -1,5 +1,5 @@
 import styles from "./List.module.css"
-import clipboard from "../../assets/clipboard.svg"
+// import clipboard from "../../assets/clipboard.svg"
 
 import { Task } from "../Task"
 
