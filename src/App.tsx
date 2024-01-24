@@ -1,16 +1,25 @@
 import styles from "./App.module.css"
 
+import { useState } from "react"
+
 import { Header } from "./components/Header"
 import { AddTask } from "./components/AddTask"
-import { Tasks } from "./components/Tasks"
+import { List } from "./components/List"
 
 export function App() {
+	const [tasks, setTasks] = useState([])
+
+	function onAddTask(newTask) {
+		setTasks([...tasks, newTask])
+		console.log(tasks)
+	}
+
 	return (
 		<>
 			<Header />
 			<div className={styles.wrapper}>
 				<AddTask />
-				<Tasks />
+				<List />
 			</div>
 		</>
 	)

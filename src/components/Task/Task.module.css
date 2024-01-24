@@ -21,11 +21,16 @@
 	text-align: justify;
 }
 
+.task button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 .task svg {
 	color: var(--gray-300);
 	min-width: 24px;
 	min-height: 24px;
-	cursor: pointer;
 }
 
 .task svg:hover {
