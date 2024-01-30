@@ -7,9 +7,9 @@ import { AddTask } from "./components/AddTask"
 import { List } from "./components/List"
 
 export function App() {
-	const [tasks, setTasks] = useState([])
+	const [tasks, setTasks] = useState<string[]>([])
 
-	function onAddTask(newTask) {
+	function onAddTask(newTask: string) {
 		setTasks([...tasks, newTask])
 		console.log(tasks)
 	}
@@ -18,8 +18,8 @@ export function App() {
 		<>
 			<Header />
 			<div className={styles.wrapper}>
-				<AddTask />
-				<List />
+				<AddTask onAddTask={onAddTask} />
+				<List tasks={tasks} />
 			</div>
 		</>
 	)

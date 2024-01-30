@@ -3,7 +3,11 @@ import styles from "./AddTask.module.css"
 import { PlusCircle } from "phosphor-react"
 import { ChangeEvent, useState } from "react"
 
-export function AddTask({ onAddTask }) {
+interface Props {
+	onAddTask: (newTask: string) => void
+}
+
+export function AddTask({ onAddTask }: Props) {
 	const [addTask, setAddTask] = useState("")
 
 	function handleInputValue(e: ChangeEvent<HTMLInputElement>) {
@@ -12,9 +16,8 @@ export function AddTask({ onAddTask }) {
 
 	function handleAddTask() {
 		if (addTask === "") {
-			console.log("Por favor, adicione uma tarefa.")
+			console.log("Please, add a task first.")
 		} else {
-			console.log(addTask)
 			onAddTask(addTask)
 			setAddTask("")
 		}
@@ -26,6 +29,7 @@ export function AddTask({ onAddTask }) {
 				type="text"
 				placeholder="Add a new task"
 				onChange={handleInputValue}
+				value={addTask}
 			/>
 			<button onClick={handleAddTask}>
 				Add
