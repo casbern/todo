@@ -13,21 +13,19 @@ export function List({ tasks }: Props) {
 		<div className={styles.wrapper}>
 			<Info />
 
-			<div className={styles.list}>
-				{tasks.length == 0 ? (
-					<div className={styles.empty}>
-						<img src={clipboard} alt="icon of a clipboard" />
-						<p>You don't have any tasks registered yet</p>
-						<p>Create tasks and organize your todo items</p>
-					</div>
-				) : (
-					<div className={styles.task}>
-						{tasks.map((task, index) => (
-							<Task key={index} task={task} />
-						))}
-					</div>
-				)}
-			</div>
+			{tasks.length == 0 ? (
+				<div className={styles.empty}>
+					<img src={clipboard} alt="icon of a clipboard" />
+					<p>You don't have any tasks registered yet</p>
+					<p>Create tasks and organize your todo items</p>
+				</div>
+			) : (
+				<>
+					{tasks.map((task, index) => (
+						<Task key={index} task={task} />
+					))}
+				</>
+			)}
 		</div>
 	)
 }
