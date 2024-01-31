@@ -3,13 +3,13 @@ import styles from "./App.module.css"
 import { useState } from "react"
 
 import { Header } from "./components/Header"
-import { AddTask } from "./components/AddTask"
+import { AddTask, TaskType } from "./components/AddTask"
 import { List } from "./components/List"
 
 export function App() {
-	const [tasks, setTasks] = useState<string[]>([])
+	const [tasks, setTasks] = useState<TaskType[]>([])
 
-	function onAddTask(newTask: string) {
+	function onAddTask(newTask: TaskType) {
 		setTasks([...tasks, newTask])
 		console.log(tasks)
 	}

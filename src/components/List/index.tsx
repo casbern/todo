@@ -1,11 +1,12 @@
 import styles from "./List.module.css"
 import clipboard from "../../assets/clipboard.svg"
 
+import { TaskType } from "../AddTask"
 import { Task } from "../Task"
 import { Info } from "../Info"
 
 interface Props {
-	tasks: string[]
+	tasks: TaskType[]
 }
 
 export function List({ tasks }: Props) {
@@ -22,7 +23,7 @@ export function List({ tasks }: Props) {
 			) : (
 				<>
 					{tasks.map((task, index) => (
-						<Task key={index} task={task} />
+						<Task key={index} task={task.task} />
 					))}
 				</>
 			)}

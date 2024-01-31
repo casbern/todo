@@ -4,22 +4,33 @@ import { PlusCircle } from "phosphor-react"
 import { ChangeEvent, useState } from "react"
 
 interface Props {
-	onAddTask: (newTask: string) => void
+	onAddTask: (newTask: TaskType) => void
+}
+
+export interface TaskType {
+	id: number
+	task: string
 }
 
 export function AddTask({ onAddTask }: Props) {
-	const [addTask, setAddTask] = useState("")
+	const [addTask, setAddTask] = useState<TaskType>({ id: 0, task: "" })
 
 	function handleInputValue(e: ChangeEvent<HTMLInputElement>) {
-		setAddTask(e.target.value)
+		setAddTask({
+			id: Math.floor(Math.random() * 90),
+			task: e.target.value,
+		})
 	}
 
 	function handleAddTask() {
-		if (addTask === "") {
+		if (addTask.task === "") {
 			console.log("Please, add a task first.")
 		} else {
 			onAddTask(addTask)
-			setAddTask("")
+			setAddTask({
+				id: 0,
+				task: "",
+			})
 		}
 	}
 
@@ -29,7 +40,7 @@ export function AddTask({ onAddTask }: Props) {
 				type="text"
 				placeholder="Add a new task"
 				onChange={handleInputValue}
-				value={addTask}
+				value={addTask.task}
 			/>
 			<button onClick={handleAddTask}>
 				Add
