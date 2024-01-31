@@ -5,9 +5,11 @@ import { useState } from "react"
 
 interface Props {
 	task: string
+	taskId: number
+	onDeleteTask: (taskId: number) => void
 }
 
-export function Task({ task }: Props) {
+export function Task({ task, taskId, onDeleteTask }: Props) {
 	const [isChecked, setIsChecked] = useState(false)
 
 	function handleCheckboxChange() {
@@ -18,7 +20,11 @@ export function Task({ task }: Props) {
 		<div className={`${styles.task} ${isChecked ? styles.checked : ""}`}>
 			<input type="checkbox" onChange={handleCheckboxChange} />
 			<p>{task}</p>
-			<button>
+			<button
+				onClick={() => {
+					onDeleteTask(taskId)
+				}}
+			>
 				<Trash />
 			</button>
 		</div>

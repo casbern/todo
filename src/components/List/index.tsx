@@ -7,9 +7,10 @@ import { Info } from "../Info"
 
 interface Props {
 	tasks: TaskType[]
+	onDeleteTask: (taskId: number) => void
 }
 
-export function List({ tasks }: Props) {
+export function List({ tasks, onDeleteTask }: Props) {
 	return (
 		<div className={styles.wrapper}>
 			<Info />
@@ -22,8 +23,13 @@ export function List({ tasks }: Props) {
 				</div>
 			) : (
 				<>
-					{tasks.map((task, index) => (
-						<Task key={index} task={task.task} />
+					{tasks.map((task) => (
+						<Task
+							key={task.id}
+							task={task.task}
+							taskId={task.id}
+							onDeleteTask={onDeleteTask}
+						/>
 					))}
 				</>
 			)}
