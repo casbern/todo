@@ -74,3 +74,8 @@
 .task input[type="checkbox"]:checked:hover::before {
 	background-color: var(--violet);
 }
+
+.task.checked p {
+	color: var(--gray-300);
+	text-decoration: line-through;
+}
