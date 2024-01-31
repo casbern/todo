@@ -27,7 +27,11 @@ export function App() {
 			<Header />
 			<div className={styles.wrapper}>
 				<AddTask onAddTask={onAddTask} />
-				<List tasks={tasks} onDeleteTask={onDeleteTask} />
+				<List
+					tasks={tasks}
+					onDeleteTask={onDeleteTask}
+					totalNumberOfTasks={tasks.length}
+				/>
 			</div>
 		</>
 	)

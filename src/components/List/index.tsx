@@ -8,12 +8,13 @@ import { Info } from "../Info"
 interface Props {
 	tasks: TaskType[]
 	onDeleteTask: (taskId: number) => void
+	totalNumberOfTasks: number
 }
 
-export function List({ tasks, onDeleteTask }: Props) {
+export function List({ tasks, onDeleteTask, totalNumberOfTasks }: Props) {
 	return (
 		<div className={styles.wrapper}>
-			<Info />
+			<Info totalNumberOfTasks={totalNumberOfTasks} />
 
 			{tasks.length == 0 ? (
 				<div className={styles.empty}>

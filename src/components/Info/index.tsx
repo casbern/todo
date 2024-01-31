@@ -1,11 +1,15 @@
 import styles from "./Info.module.css"
 
-export function Info() {
+interface Props {
+	totalNumberOfTasks: number
+}
+
+export function Info({ totalNumberOfTasks }: Props) {
 	return (
 		<div className={styles.info}>
 			<div className={styles.createdTasks}>
 				<span>Created taks</span>
-				<span>0</span>
+				<span>{totalNumberOfTasks}</span>
 			</div>
 
 			<div className={styles.finishedTasks}>
