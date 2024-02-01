@@ -2,9 +2,13 @@ import styles from "./Info.module.css"
 
 interface Props {
 	totalNumberOfTasks: number
+	totalNumberOfFinishedTasks: number
 }
 
-export function Info({ totalNumberOfTasks }: Props) {
+export function Info({
+	totalNumberOfTasks,
+	totalNumberOfFinishedTasks,
+}: Props) {
 	return (
 		<div className={styles.info}>
 			<div className={styles.createdTasks}>
@@ -14,7 +18,7 @@ export function Info({ totalNumberOfTasks }: Props) {
 
 			<div className={styles.finishedTasks}>
 				<span>Finished taks</span>
-				<span>0</span>
+				<span>{totalNumberOfFinishedTasks}</span>
 			</div>
 		</div>
 	)

@@ -4,6 +4,7 @@ import clipboard from "../../assets/clipboard.svg"
 import { TaskType } from "../AddTask"
 import { Task } from "../Task"
 import { Info } from "../Info"
+import { useState } from "react"
 
 interface Props {
 	tasks: TaskType[]
@@ -12,9 +13,24 @@ interface Props {
 }
 
 export function List({ tasks, onDeleteTask, totalNumberOfTasks }: Props) {
+	const [countFinishedTasks, setCountFinishedTasks] = useState(0)
+
+	function handleCheckTask() {
+		setCountFinishedTasks(countFinishedTasks + 1)
+	}
+
+	function handleUncheckTask() {
+		if (countFinishedTasks > 0) {
+			setCountFinishedTasks(countFinishedTasks - 1)
+		}
+	}
+
 	return (
 		<div className={styles.wrapper}>
-			<Info totalNumberOfTasks={totalNumberOfTasks} />
+			<Info
+				totalNumberOfTasks={totalNumberOfTasks}
+				totalNumberOfFinishedTasks={countFinishedTasks}
+			/>
 
 			{tasks.length == 0 ? (
 				<div className={styles.empty}>
@@ -30,6 +46,8 @@ export function List({ tasks, onDeleteTask, totalNumberOfTasks }: Props) {
 							task={task.task}
 							taskId={task.id}
 							onDeleteTask={onDeleteTask}
+							handleCheckTask={handleCheckTask}
+							handleUncheckTask={handleUncheckTask}
 						/>
 					))}
 				</>

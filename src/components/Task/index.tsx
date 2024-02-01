@@ -7,13 +7,23 @@ interface Props {
 	task: string
 	taskId: number
 	onDeleteTask: (taskId: number) => void
+	handleCheckTask: () => void
+	handleUncheckTask: () => void
 }
 
-export function Task({ task, taskId, onDeleteTask }: Props) {
+export function Task({
+	task,
+	taskId,
+	onDeleteTask,
+	handleCheckTask,
+	handleUncheckTask,
+}: Props) {
 	const [isChecked, setIsChecked] = useState(false)
 
 	function handleCheckboxChange() {
 		setIsChecked(!isChecked)
+
+		!isChecked ? handleCheckTask() : handleUncheckTask()
 	}
 
 	return (
@@ -23,6 +33,7 @@ export function Task({ task, taskId, onDeleteTask }: Props) {
 			<button
 				onClick={() => {
 					onDeleteTask(taskId)
+					handleUncheckTask()
 				}}
 			>
 				<Trash />
